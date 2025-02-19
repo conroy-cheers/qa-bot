@@ -1,0 +1,30 @@
+[project]
+name = "qa-bot"
+version = "0.1.0"
+description = "LLM-driven Q&A Slack bot."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Conroy Cheers", email = "conroy@corncheese.org" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "slack-bolt==1.22.0",
+    "pytest",
+    "slack-cli-hooks==0.0.3",
+    "openai==1.61.0",
+    "anthropic==0.45.2",
+    "google-cloud-aiplatform==1.79.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+log_file = "logs/pytest.log"
+log_file_level = "DEBUG"
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.6",
+]
